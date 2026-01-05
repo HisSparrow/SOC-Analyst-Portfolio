@@ -1,0 +1,134 @@
+# 🔐 Firewall History & Network Security
+
+This repository contains beginner-friendly notes on firewall generations, key concepts, and a short quiz to test understanding.  
+Ideal for cybersecurity students or portfolio reference.
+
+---
+
+## **1️⃣ First Generation Firewalls**
+**Packet Filtering Firewalls** (1980s)  
+
+**Key Features:**  
+- Stateless (does not track sessions)  
+- Inspects individual packets based on:  
+  - Source IP  
+  - Destination IP  
+  - Source port  
+  - Destination port  
+  - Protocol type (TCP/UDP/ICMP)  
+
+**Example:**  
+192.168.100.10 : TCP / 49152 → 142.250.1.92 : TCP / 80- Internal host connecting to a web server on port 80  
+
+**OSI Layers:** Layer 3 (Network), Layer 4 (Transport)  
+
+**Strengths:**  
+- Fast and lightweight  
+- Easy to configure  
+
+**Limitations:**  
+- Cannot track sessions (stateless)  
+- No application-level awareness  
+
+**Memory Tip:**  
+> 1st Gen = IPs + Ports + Protocols (No memory)
+
+---
+
+## **2️⃣ Second Generation Firewalls**
+**Stateful Inspection Firewalls** (Late 1990s – 2000s)  
+
+**Key Features:**  
+- Tracks active network connections using a **state table**  
+- Deep Packet Inspection (DPI)  
+- Intrusion Prevention System (IPS) capabilities  
+- Improved security over packet filtering  
+
+**OSI Layers:** Primarily Layer 3 & Layer 4, begins inspecting Layer 7  
+
+**Strengths:**  
+- Blocks unsolicited or suspicious traffic  
+- Understands session context  
+
+**Memory Tip:**  
+> 2nd Gen = Remembers connections (Stateful)
+
+---
+
+## **3️⃣ Third Generation Firewalls**
+**Next-Generation Firewalls (NGFWs)**  
+
+**Key Features:**  
+- Application-aware and user-aware  
+- User identity integration (e.g., Active Directory)  
+- Threat intelligence integration (e.g., MISP feeds)  
+- Deep Packet Inspection (DPI)  
+- Intrusion Prevention System (IPS)  
+- Malware and exploit detection  
+
+**OSI Layers:** Layer 3 → Layer 7  
+
+**Example Question:**  
+- Traditional: “Allow traffic from IP A to IP B on port 80?”  
+- NGFW: “Should John from Marketing access Facebook over HTTPS during work hours, and is this traffic malicious?”  
+
+**Memory Tip:**  
+> 3rd Gen = Users + Apps + Threats
+
+---
+
+## **📊 Quick Comparison Table**
+
+| Generation | Type                     | Stateful | App Awareness | Example Question |
+|------------|--------------------------|----------|---------------|-----------------|
+| 1st        | Packet Filtering         | ❌ No    | ❌ No         | IP + Port       |
+| 2nd        | Stateful Inspection      | ✅ Yes   | ⚠ Limited     | Is this session valid? |
+| 3rd        | Next-Gen Firewall (NGFW) | ✅ Yes   | ✅ Yes        | Who, what app, what threat? |
+
+---
+
+## **🧒 Explain It Like You’re 12**
+- **1st Gen:** Checks addresses and doors  
+- **2nd Gen:** Remembers who already walked in  
+- **3rd Gen:** Knows who you are, what app you’re using, and whether it’s dangerous  
+
+---
+
+## **💡 Quick Quiz**
+
+**1️⃣ Which firewall generation is stateless?**  
+A) 1st Gen  
+B) 2nd Gen  
+C) 3rd Gen  
+
+**2️⃣ Stateful inspection is associated with which generation?**  
+A) 1st Gen  
+B) 2nd Gen  
+C) 3rd Gen  
+
+**3️⃣ NGFWs can integrate:**  
+A) User identity  
+B) Deep Packet Inspection (DPI)  
+C) Connection tracking only  
+D) Threat intelligence  
+
+**4️⃣ Which firewall generation primarily inspects Layer 7 traffic?**  
+A) 1st Gen  
+B) 2nd Gen  
+C) 3rd Gen  
+
+**5️⃣ Fill in the blank:**  
+1st Gen firewalls are _______ and focus on _______.  
+
+**6️⃣ Scenario Question:**  
+You see traffic from a marketing employee trying to access social media during work hours. Which firewall generation could **both identify the user AND control the app they’re using**?  
+
+---
+
+**✅ Answer Key:**  
+1) A – 1st Gen  
+2) B – 2nd Gen  
+3) A, B, D  
+4) C – 3rd Gen  
+5) Stateless, IPs & ports  
+6) 3rd Gen, NGFW
